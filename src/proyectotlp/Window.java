@@ -167,10 +167,19 @@ public class Window extends javax.swing.JFrame {
                     result = result + " Simbolo no reconocido\n";
                     break;
                     
-                case ID: case INT:
-                    result = result + "Token: " + token + lexer.lexeme + "\n";    
-                    break;
-                    
+                case ID: 
+                    case INT:
+                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
+                        break;
+                    case FLOAT:
+                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
+                        break; 
+                    case CHAR:
+                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
+                        break;
+                    case STRING:
+                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
+                        break;
                 default:  
                     result = result + "Token: " + token + "\n";
             }
