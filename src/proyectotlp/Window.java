@@ -181,7 +181,7 @@ public class Window extends javax.swing.JFrame {
                         result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
                         break;
                 default:  
-                    result = result + "Token: " + token + " " + lexer.lexeme + "\n";
+                    result = result + "Token: " + token + " " +lexer.lexeme + "\n";
             }
         }
         

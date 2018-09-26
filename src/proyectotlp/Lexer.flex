@@ -14,6 +14,7 @@ public String lexeme;
 "/\*"({L}|.)+"\*/" {return COMENT;} /*cometarios */
 {WHITE} {}                  /* Si se encuentra un espacio, ignorarlo */
 "=" {lexeme=yytext(); return ASSIGN;}        /* '=' retorna token ASSIGN */
+"==" {lexeme=yytext(); return COMPAR;}        /* '==' retorna token COMPAR */
 "<" {lexeme=yytext(); return LESSTHAN;}        /* '<' retorna token LESSTHAN */
 ">" {lexeme=yytext(); return GREATHERTHAN;}        /* '>' retorna token GREATHERTHAN */
 "+" {lexeme=yytext(); return SUMA;}          /* '+' retorna SUMA */

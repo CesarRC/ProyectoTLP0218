@@ -22,7 +22,6 @@ public class Main {
         w.setDefaultCloseOperation(w.EXIT_ON_CLOSE);
         w.setVisible(true);
         
-
     }
     public static void generarLexer(String path){
         File file=new File(path);
