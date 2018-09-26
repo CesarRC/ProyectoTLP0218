@@ -9,15 +9,17 @@ WHITE=[ \t\r\n]             /* WHITE indica tabluación, espacio o retorno de ca
 %{
 public String lexeme;
 %}
-%%                          /* REGLAS LEXICAS */
+%%                          /* REGLAS LEXICAS */                 /*cometarios */
+"//"({L}|.)+"\\n" {return COMENT;} /*cometarios */
+"/\*"({L}|.)+"\*/" {return COMENT;} /*cometarios */
 {WHITE} {}                  /* Si se encuentra un espacio, ignorarlo */
 "=" {return ASSIGN;}        /* '=' retorna token ASSIGN */
-"<" {return ASSIGN;}        /* '<' retorna token LESSTHAN */
-">" {return ASSIGN;}        /* '>' retorna token GREATHERTHAN */
+"<" {return LESSTHAN;}        /* '<' retorna token LESSTHAN */
+">" {return GREATHERTHAN;}        /* '>' retorna token GREATHERTHAN */
 "+" {return SUMA;}          /* '+' retorna SUMA */
 "-" {return RESTA;}         /* '-' retorna RESTA */ 
 "*" {return MULTIP;}        /* '*' retorna MULTIP */
-"/" {return DIV;}           /* '/' retorna DIV */
+//"/" {return DIV;}           /* '/' retorna DIV */
 ";" {return EOI;}           /* ';' retorna EOI */
 "{" {return LEFT;}           /* llave de apertura retorna LEFT*/
 "}" {return RIGHT;}          /*llave de cierre retorn RIGHT*/
