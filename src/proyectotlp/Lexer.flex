@@ -12,10 +12,24 @@ public String lexeme;
 %%                          /* REGLAS LEXICAS */
 {WHITE} {}                  /* Si se encuentra un espacio, ignorarlo */
 "=" {return ASSIGN;}        /* '=' retorna token ASSIGN */
+"<" {return ASSIGN;}        /* '<' retorna token LESSTHAN */
+">" {return ASSIGN;}        /* '>' retorna token GREATHERTHAN */
 "+" {return SUMA;}          /* '+' retorna SUMA */
 "-" {return RESTA;}         /* '-' retorna RESTA */ 
 "*" {return MULTIP;}        /* '*' retorna MULTIP */
 "/" {return DIV;}           /* '/' retorna DIV */
+";" {return EOI;}           /* ';' retorna EOI */
+"{" {return LEFT;}           /* llave de apertura retorna LEFT*/
+"}" {return RIGHT;}          /*llave de cierre retorn RIGHT*/
+"while" {return WHILE;}      /*palabra reservada while*/
+"for" {return FOR;}         /*palabra reservada for*/
+"if" {return IF;}           /*palabra reservada if*/
+"(" {return LEFTP;}         /*parentesis de apertura retorna LEFT(*/
+")" {return RIGHTP;}         /*parentesis de cierre retorna RIGHTP(*/
+"return" {return RETURN;}    /*valor de retorno retorna RETURN*/
 {L}({L}|{D})* {lexeme=yytext(); return ID;}         /* Una letra seguida de letras o numeros se asigna como lexema, retorna ID */
  ("(-"{D}+")")|{D}+ {lexeme=yytext(); return INT;}  /* Digito o conjunto de digitos con o sin signo retorna INT */
+{D}+"."{D}* {lexeme=yytext(); return FLOAT;}        /* Digito o conjunto de digitos con o sin signo retorna Float */
+"'"{L}"'" {lexeme=yytext(); return CHAR;}           /*Letra o guion bajo retorna char*/
+"\""({L}|{D})*"\"" {lexeme=yytext(); return STRING;}/*cadena de digitos o letras retorna String*/
 . {return ERROR;}                                   /* Si no cumple ninguna de las anteriores, retornar ERROR */
