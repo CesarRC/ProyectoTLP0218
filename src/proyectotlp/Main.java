@@ -15,7 +15,8 @@ import java.io.File;
 public class Main {
    
      public static void main(String[] args) {
-        String path = "C:/Users/CESAR-PC/Documents/NetBeansProjects/ProyectoTLP/src/proyectotlp/Lexer.flex";
+        //String path = "C:/Users/CESAR-PC/Documents/NetBeansProjects/ProyectoTLP/src/proyectotlp/Lexer.flex";
+        String path = "/home/manuel/NetBeansProjects/ProyectoTLP0218/src/proyectotlp/Lexer.flex";
         generarLexer(path);
         
         Window w = new Window();
