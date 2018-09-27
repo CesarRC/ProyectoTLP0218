@@ -30,7 +30,7 @@ WHITE=[ \t\r\n]             /* WHITE indica tabluación, espacio o retorno de ca
 public String lexeme;
 %}
 %%                          /* REGLAS LEXICAS */                 /*comentarios */
-"//"({L}|.)+"\\n" {return COMENT;} /*cometarios */
+"//"({L}|.)+ {return COMENT;} /*cometarios */
 "/\*"({L}|.)+"\*/" {return COMENT;} /*cometarios */
 {WHITE} {}                  /* Si se encuentra un espacio, ignorarlo */
 "=" {lexeme=yytext(); return ASSIGN;}        /* '=' retorna token ASSIGN */

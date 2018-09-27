@@ -1,3 +1,3 @@
-int a = b;
-b = c;
-while true;
+//hola mundo 
+
+int a = 10;
