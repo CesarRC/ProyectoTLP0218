@@ -162,29 +162,13 @@ public class Window extends javax.swing.JFrame {
                 return;
             }
             
-            switch(token){
-                case ERROR:
-                    result = result + " Simbolo no reconocido\n";
-                    break;
-                    
-                case ID: 
-                    case INT:
-                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
-                        break;
-                    case FLOAT:
-                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
-                        break; 
-                    case CHAR:
-                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
-                        break;
-                    case STRING:
-                        result = result + "Token: " + token +" "+ lexer.lexeme + "\n";
-                        break;
-                default:  
-                    result = result + "Token: " + token + " " +lexer.lexeme + "\n";
+            if(token == Token.ERROR)
+            {
+                result = result + "\t \'simbolo no reconocido \n";
+            } else {
+                result = result + "Token: " + token.toString() + "\tlínea: " + lexer.getLinea() + "\tcolumna:" + lexer.getColumna() + "\n";
             }
         }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

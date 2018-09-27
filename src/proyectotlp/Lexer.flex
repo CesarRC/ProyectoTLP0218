@@ -1,15 +1,35 @@
 package proyectotlp;
+import java_cup.runtime.*;
 import static proyectotlp.Token.*;
 %%                          /* DEFINICIONES */
 %class Lexer                /* Indica nombre de la clase java que se generará */
 %type Token                 /* Se retornarán valores tipo Token */
+%line
+%column
+
+%{
+int linea;
+int col;
+
+int getLinea()
+{
+    return yyline;
+}
+
+int getColumna()
+{
+    return yycolumn;
+}
+%}
+
+
 L = [a-zA-Z_]               /* L puede tomar el valor de cualquier letra o un guión bajo */
 D = [0-9]                   /* D es todos los digitos */
 WHITE=[ \t\r\n]             /* WHITE indica tabluación, espacio o retorno de carro */
 %{
 public String lexeme;
 %}
-%%                          /* REGLAS LEXICAS */                 /*cometarios */
+%%                          /* REGLAS LEXICAS */                 /*comentarios */
 "//"({L}|.)+"\\n" {return COMENT;} /*cometarios */
 "/\*"({L}|.)+"\*/" {return COMENT;} /*cometarios */
 {WHITE} {}                  /* Si se encuentra un espacio, ignorarlo */

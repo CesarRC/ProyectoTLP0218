@@ -1,1 +1,1 @@
-STRING g = "tuma"
+int a = b;
