@@ -50,7 +50,11 @@ public String lexeme;
 "(" {lexeme=yytext(); return LEFTP;}         /*parentesis de apertura retorna LEFT(*/
 ")" {lexeme=yytext(); return RIGHTP;}         /*parentesis de cierre retorna RIGHTP(*/
 "return" {return RETURN;}    /*valor de retorno retorna RETURN*/
-{L}({L}|{D})* {lexeme=yytext(); return ID;}         /* Una letra seguida de letras o numeros se asigna como lexema, retorna ID */
+"int" {lexeme=yytext(); return ID;}
+"float" {lexeme=yytext(); return ID;}
+"char" {lexeme=yytext(); return ID;}
+"String" {lexeme=yytext(); return ID;}
+{L}({L}|{D})* {lexeme=yytext(); return VAR;}         /* Una letra seguida de letras o numeros se asigna como lexema, retorna ID */
  ("(-"{D}+")")|{D}+ {lexeme=yytext(); return INT;}  /* Digito o conjunto de digitos con o sin signo retorna INT */
 {D}+"."{D}* {lexeme=yytext(); return FLOAT;}        /* Digito o conjunto de digitos con o sin signo retorna Float */
 "'"{L}"'" {lexeme=yytext(); return CHAR;}           /*Letra o guion bajo retorna char*/

@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +21,8 @@ import java.util.logging.Logger;
  * @author CESAR-PC
  */
 public class Window extends javax.swing.JFrame {
+    
+    HashMap<Integer,String> tabla = new HashMap<>();
 
     /**
      * Creates new form Window
@@ -137,6 +140,8 @@ public class Window extends javax.swing.JFrame {
     
     
     public void Analizar() throws IOException{
+        int key = 0;
+        String containR = "";
         File ar = new File("ej.txt");
         PrintWriter wr;
         
@@ -164,10 +169,16 @@ public class Window extends javax.swing.JFrame {
             
             if(token == Token.ERROR)
             {
-                result = result + "\t \'simbolo no reconocido \n";
+                containR = result + "\t \'simbolo no reconocido \n";
+                tabla.put(key, containR);
+                result = result + containR;
             } else {
-                result = result + "Token: " + token.toString() + "\tlínea: " + lexer.getLinea() + "\tcolumna:" + lexer.getColumna() + "\n";
+                containR = "Token: " + token.toString() +"\t" +lexer.lexeme+ "\tlínea: " + lexer.getLinea() + "\tcolumna:" + lexer.getColumna() + "\n";
+                tabla.put(key, containR);
+                result = result + containR;
             }
+            System.out.println(tabla.get(key));
+            key++;
         }
     }
 
