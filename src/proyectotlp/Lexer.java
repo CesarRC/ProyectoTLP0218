@@ -281,12 +281,12 @@ int col;
 
 int getLinea()
 {
-    return yyline;
+    return yyline + 1;
 }
 
 int getColumna()
 {
-    return yycolumn;
+    return yycolumn + 1;
 }
 public String lexeme;
 
